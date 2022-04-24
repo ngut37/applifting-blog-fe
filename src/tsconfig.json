@@ -10,11 +10,13 @@
 
       "@utils/*": ["utils/*"],
 
-      "@atoms/*": ["atoms/*"],
-      "@molecules/*": ["molecules/*"],
-      "@modules/*": ["modules/*"],
-      "@containers/*": ["containers/*"],
+      "@atoms/*": ["components/atoms/*"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms/*": ["components/organisms/*"],
+      "@modules/*": ["components/modules/*"],
+      "@containers/*": ["components/containers/*"],
 
+      "@contexts/*": ["contexts/*"],
       "@providers/*": ["providers/*"],
 
       "@api/*": ["api/*"],
