@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 
+import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
-import clsx from 'clsx';
 
 import { Message, messageToString } from '@utils/message';
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 
 import { Message, messageToString } from '@utils/message';
+import { enumerate } from '@utils/enumerate';
 
 import {
   Heading as ChakraHeading,
@@ -10,28 +11,22 @@ import {
   TextProps as ChakraTextProps,
 } from '@chakra-ui/react';
 
-enum TEXT_TYPES {
-  'heading',
-  'text',
-}
+export const textTypes = enumerate('heading', 'text');
+export type TextType = keyof typeof textTypes;
 
 type TextBaseProps = {
-  type?: TEXT_TYPES;
+  type?: TextType;
   message: Message;
 };
 
 export type TextProps = TextBaseProps & ChakraTextProps;
 
-export const Text = ({
-  type = TEXT_TYPES.text,
-  message,
-  ...textProps
-}: TextProps) => {
+export const Text = ({ type = 'text', message, ...textProps }: TextProps) => {
   const intl = useIntl();
 
   const content = messageToString(message, intl);
 
-  if (type === TEXT_TYPES.heading)
+  if (type === 'heading')
     return <ChakraHeading {...textProps}>{content}</ChakraHeading>;
   else return <ChakraText {...textProps}>{content}</ChakraText>;
 };
