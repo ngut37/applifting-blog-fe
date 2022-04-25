@@ -1,20 +1,16 @@
-import { useCallback } from 'react';
-
 import type { NextPage } from 'next';
 
-import { listArticles } from '@api/articles';
+import { Flex } from '@chakra-ui/react';
 
-import { Button } from '@atoms/button';
 import { MainContainer } from '@containers/main-container';
+import { ArticlesList } from '@modules/articles-list';
 
 const Home: NextPage = () => {
-  const buttonOnClickHandler = useCallback(async () => {
-    await listArticles({ page: 1, skip: 0 });
-  }, []);
-
   return (
     <MainContainer>
-      <Button message={{ id: 'login' }} onClick={buttonOnClickHandler} />
+      <Flex justifyContent="center" alignItems="center" paddingY="50px">
+        <ArticlesList />
+      </Flex>
     </MainContainer>
   );
 };
