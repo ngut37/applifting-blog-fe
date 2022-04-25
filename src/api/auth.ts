@@ -31,14 +31,9 @@ export type MeResponseBody = {
 };
 
 export const me = async () => {
-  const authorizationToken = getToken() || '';
-
   const res = await apiClient.request<MeResponseBody>({
     url: '/auth/me',
     method: 'GET',
-    headers: {
-      Authorization: `Bearer ${authorizationToken}`,
-    },
   });
 
   return res;
