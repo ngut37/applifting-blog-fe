@@ -37,7 +37,7 @@ export const ArticleDescription = ({
         <Text message={{ text: title }} fontSize={24} fontWeight="500" />
         <Text
           message={{ text: formattedDate }}
-          fontSize="14"
+          fontSize={14}
           color="gray.600"
         />
         {perex && <Text message={{ text: perex }} noOfLines={3} />}

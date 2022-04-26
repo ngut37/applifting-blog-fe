@@ -1,0 +1,9 @@
+.itemLink {
+  &:hover .itemTitle {
+    text-decoration: underline lightgrey;
+  }
+
+  &:hover * {
+    color: black;
+  }
+}

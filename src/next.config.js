@@ -5,6 +5,7 @@ const nextConfig = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
+  swcMinify: false,
 };
 
 module.exports = nextConfig;

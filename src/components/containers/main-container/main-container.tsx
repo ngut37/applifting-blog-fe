@@ -1,14 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import Head from 'next/head';
 
 import { Header } from '@modules/header';
 import { AuthProvider } from '@contexts/auth';
 
-type Props = {
-  children?: ReactNode;
-  title?: string;
-};
+type Props = PropsWithChildren<{ title?: string }>;
 
 export const MainContainer = ({
   title = 'Applifting blog',
