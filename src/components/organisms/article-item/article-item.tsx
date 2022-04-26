@@ -5,6 +5,7 @@ import { getImage } from '@api/image';
 
 import { Flex, HStack, Image, Skeleton, VStack } from '@chakra-ui/react';
 
+import { NoContent } from '@organisms/no-content';
 import { ArticleDescription } from '@molecules/article-description';
 
 type Props = Article;
@@ -24,10 +25,27 @@ export const ArticleItem = (article: Props) => {
 
   return (
     <HStack width="860px" height="200px" maxHeight="200px" spacing="20px">
-      <Flex height="200px">
-        <Flex width="270px" overflow="hidden">
+      <Flex
+        minWidth="300px"
+        maxWidth="300px"
+        overflow="hidden"
+        maxHeight="200px"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {imageUrl ? (
           <Image src={imageUrl} width="100%" />
-        </Flex>
+        ) : (
+          <Flex
+            backgroundColor="gray.50"
+            width="100%"
+            height="200px"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <NoContent />
+          </Flex>
+        )}
       </Flex>
       <ArticleDescription {...article} />
     </HStack>
@@ -36,7 +54,7 @@ export const ArticleItem = (article: Props) => {
 
 export const SkeletonArticleItem = () => {
   return (
-    <HStack height="200px" width="860px" spacing="20px">
+    <HStack width="860px" height="200px" spacing="20px">
       <Flex width="270px" height="100%" overflow="hidden">
         <Skeleton isLoaded={false} width="100%" height="100%" />
       </Flex>

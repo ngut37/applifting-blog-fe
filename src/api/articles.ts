@@ -1,12 +1,10 @@
+import { AxiosRequestConfig } from 'axios';
+
+import { config } from '@config';
+
 import { apiClient } from '@utils/api-client';
 
-export type Comment = {
-  id: string;
-  articleId: string;
-  author: string;
-  content: string;
-  score: string;
-};
+import { Comment } from './comments';
 
 export type Article = {
   id: string;
@@ -55,6 +53,30 @@ export const listArticles = async ({
     });
     return res;
   } catch (error) {
+    return undefined;
+  }
+};
+
+type GetArticleParam = {
+  id: string;
+  overrideToken?: string;
+};
+
+export const getArticle = async ({ id, overrideToken }: GetArticleParam) => {
+  const headers: AxiosRequestConfig['headers'] = {
+    'x-api-key': config.API_KEY,
+  };
+
+  if (overrideToken) headers['Authorization'] = `Bearer ${overrideToken}`;
+
+  try {
+    const res = await apiClient.request<Article>({
+      url: `/articles/${id}`,
+      method: 'GET',
+      headers,
+    });
+    return res;
+  } catch {
     return undefined;
   }
 };

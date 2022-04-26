@@ -32,7 +32,7 @@ export const AuthProvider = ({ protectedPage = false, children }: Props) => {
       if (protectedPage && !data) {
         // re-route user to login page if not authenticated
         // ! This reroute is too sudden.
-        router.push('./login');
+        router.push('/login');
       }
     }
     setLoading(false);
