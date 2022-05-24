@@ -25,7 +25,7 @@ export const AuthProvider = ({ protectedPage = false, children }: Props) => {
   const [auth, setAuthState] = useState<MeResponseBody | undefined>();
 
   const authenticate = useCallback(async () => {
-    let { data } = await me();
+    let { data } = (await me()) || {};
     if (data?.name) {
       setAuthState(data);
     } else if (!data) {

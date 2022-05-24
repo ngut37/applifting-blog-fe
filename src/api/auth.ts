@@ -31,10 +31,14 @@ export type MeResponseBody = {
 };
 
 export const me = async () => {
-  const res = await apiClient.request<MeResponseBody>({
-    url: '/auth/me',
-    method: 'GET',
-  });
+  try {
+    const res = await apiClient.request<MeResponseBody>({
+      url: '/auth/me',
+      method: 'GET',
+    });
 
-  return res;
+    return res;
+  } catch {
+    return;
+  }
 };

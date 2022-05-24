@@ -1,5 +1,6 @@
 export const config = Object.freeze({
-  API_URL: process.env.API_URL || 'http://localhost:4000',
-  TENANT_NAME: process.env.TENANT_NAME || 'Karel Kamo',
-  API_KEY: '18109415-e13f-4ab9-b9fc-d3f5776087be',
+  API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000',
+  TENANT_NAME: process.env.NEXT_PUBLIC_TENANT_NAME || 'Karel Kamo',
+  API_KEY:
+    process.env.NEXT_PUBLIC_API_KEY || 'e6bd09f2-77cc-43de-9eb6-35a959f2dc50',
 });
